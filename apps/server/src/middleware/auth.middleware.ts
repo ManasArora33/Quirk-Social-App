@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 import User from '../models/User.model';
 
 export const protect = async (req: Request, res: Response, next: NextFunction) => {
@@ -10,7 +10,7 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+    const decoded = verify(token, process.env.JWT_SECRET!) as { userId: string };
 
     // User DB se laa ke req.user me store kar rahe
     const dbUser = await User.findById(decoded.userId).select('-password');
