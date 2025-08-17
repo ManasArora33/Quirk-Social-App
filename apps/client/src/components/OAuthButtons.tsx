@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-
+import { API_BASE_URL } from '../lib/api';
 export const OAuthButtons = () => {
   const navigate = useNavigate();
   const { loadUser } = useAuth();
-  const base = process.env.BASE_URL;
+  const base = API_BASE_URL;
   useEffect(() => { 
     const handleMessage = async (event: MessageEvent) => {
       // only accept messages from backend success page
