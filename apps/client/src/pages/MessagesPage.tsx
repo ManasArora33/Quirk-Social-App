@@ -1,5 +1,5 @@
 import { Layout } from '../components/Layout';
-import { Mail, Search, Settings, Plus, MessageCircle } from 'lucide-react';
+import { Search, Settings, Plus, MessageCircle } from 'lucide-react';
 
 const MessagesPage = () => {
   // Mock conversation data for UI demonstration
