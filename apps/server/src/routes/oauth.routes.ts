@@ -22,7 +22,7 @@ router.get('/google/callback',
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.redirect('/api/v1/oauth/success');
@@ -43,7 +43,7 @@ router.get('/github/callback',
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.redirect('/api/v1/oauth/success');
@@ -52,6 +52,7 @@ router.get('/github/callback',
 
 // Simple success page for backend-only testing
 router.get('/success', (_req: Request, res: Response) => {
+  const clientOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.end(`<!doctype html>
   <html>
@@ -67,7 +68,7 @@ router.get('/success', (_req: Request, res: Response) => {
         (function() {
           try {
             if (window.opener && !window.opener.closed) {
-              window.opener.postMessage({ type: 'OAUTH_SUCCESS' }, 'http://localhost:5173');
+              window.opener.postMessage({ type: 'OAUTH_SUCCESS' }, '${clientOrigin}');
               window.close();
             }
           } catch (e) {
