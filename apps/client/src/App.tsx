@@ -6,7 +6,7 @@ import ProfilePage from "./pages/ProfilePage"
 import NotificationsPage from "./pages/NotificationsPage"
 import MessagesPage from "./pages/MessagesPage"
 import { LandingPage } from "./pages/LandingPage"
-
+import { OAuthSuccess } from "./components/OauthSuccess"
 function App() {
   return (
     <Routes>
@@ -17,6 +17,7 @@ function App() {
       <Route path="/profile/:username" element={<ProfilePage />} />
       <Route path="/notifications" element={<NotificationsPage/>} />
       <Route path="/messages" element={<MessagesPage/>} />
+      <Route path="/oauth/success" element={<OAuthSuccess/>} />
     </Routes>
   )
 }
