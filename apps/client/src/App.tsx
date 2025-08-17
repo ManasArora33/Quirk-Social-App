@@ -7,6 +7,7 @@ import NotificationsPage from "./pages/NotificationsPage"
 import MessagesPage from "./pages/MessagesPage"
 import { LandingPage } from "./pages/LandingPage"
 import { OAuthSuccess } from "./components/OauthSuccess"
+
 function App() {
   return (
     <Routes>
