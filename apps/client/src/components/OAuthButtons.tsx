@@ -8,10 +8,11 @@ export const OAuthButtons = () => {
   const navigate = useNavigate();
   const { loadUser } = useAuth();
   const base = API_BASE_URL;
+  const backend_origin = import.meta.env.BACKEND_ORIGIN;
   useEffect(() => { 
     const handleMessage = async (event: MessageEvent) => {
       // only accept messages from backend success page
-      if (event.origin !== base) return;
+      if (event.origin !== backend_origin) return;
       if (event.data && event.data.type === 'OAUTH_SUCCESS') {
         await loadUser();
         navigate('/home');
@@ -20,7 +21,7 @@ export const OAuthButtons = () => {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [loadUser, navigate, base]);
+  }, [loadUser, navigate, backend_origin]);
 
   return (
     <div className="flex flex-col gap-4 mt-6">
