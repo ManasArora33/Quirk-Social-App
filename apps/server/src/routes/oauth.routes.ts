@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import passport from 'passport';
 import { generateToken } from '../utils/jwt';
+import { IUser } from '../models/User.model';
 
 const router = express.Router();
 
@@ -10,10 +11,10 @@ router.get('/google', passport.authenticate('google', {
   session: false
 }));
 
-router.get('/google/callback', 
+router.get('/google/callback',
   passport.authenticate('google', { session: false }),
-  (req, res) => {
-    const user = req.user;
+  (req: Request, res: Response) => {
+    const user = req.user as IUser;
     if (!user) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
@@ -33,8 +34,8 @@ router.get('/github', passport.authenticate('github'));
 
 router.get('/github/callback',
   passport.authenticate('github', { session: false }),
-  (req, res) => {
-    const user = req.user;
+  (req: Request, res: Response) => {
+    const user = req.user as IUser;
     if (!user) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
@@ -50,7 +51,7 @@ router.get('/github/callback',
 );
 
 // Simple success page for backend-only testing
-router.get('/success', (_req, res) => {
+router.get('/success', (_req: Request, res: Response) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.end(`<!doctype html>
   <html>
