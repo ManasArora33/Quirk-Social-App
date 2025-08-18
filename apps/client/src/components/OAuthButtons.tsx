@@ -8,11 +8,19 @@ export const OAuthButtons = () => {
   const navigate = useNavigate();
   const { loadUser } = useAuth();
   const base = API_BASE_URL;
-  const backend_origin = import.meta.env.BACKEND_ORIGIN;
+  // Derive origins to validate postMessage events
+  const backendOrigin = (() => {
+    try {
+      return new URL(base).origin;
+    } catch {
+      return undefined;
+    }
+  })();
+  const clientOrigin = typeof window !== 'undefined' ? window.location.origin : undefined;
   useEffect(() => { 
     const handleMessage = async (event: MessageEvent) => {
-      // only accept messages from backend success page
-      if (event.origin !== backend_origin) return;
+      // Accept messages only from our known origins (frontend success page or backend fallback page)
+      if (event.origin !== clientOrigin && event.origin !== backendOrigin) return;
       if (event.data && event.data.type === 'OAUTH_SUCCESS') {
         await loadUser();
         navigate('/home');
@@ -21,7 +29,7 @@ export const OAuthButtons = () => {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [loadUser, navigate, backend_origin]);
+  }, [loadUser, navigate, backendOrigin, clientOrigin]);
 
   return (
     <div className="flex flex-col gap-4 mt-6">
