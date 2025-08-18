@@ -25,7 +25,9 @@ router.get('/google/callback',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    res.redirect(process.env.CLIENT_URL + '/oauth/success');
+    // Redirect to backend-hosted success page so the popup remains on the backend origin
+    // ensuring Set-Cookie is applied before posting a message to the opener
+    res.redirect('/api/v1/oauth/success');
   }
 );
 
@@ -46,7 +48,8 @@ router.get('/github/callback',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    res.redirect(process.env.CLIENT_URL + '/oauth/success');
+    // Keep popup on backend origin to avoid cross-site redirect before cookie commit
+    res.redirect('/api/v1/oauth/success');
   }
 );
 
@@ -65,8 +68,15 @@ router.get('/success', (_req: Request, res: Response) => {
       <p>Auth cookie has been set.</p>
       <p>If this window doesn't close automatically, you can close it and return to the app.</p>
       <script>
-        (function() {
+        (async function() {
           try {
+            // Give the browser a tick to persist Set-Cookie, then verify via /auth/me
+            await new Promise(r => setTimeout(r, 50));
+            try {
+              await fetch('/api/v1/auth/me', { method: 'GET', credentials: 'include' });
+            } catch (e) {
+              // ignore network/CORS; we still notify the opener
+            }
             if (window.opener && !window.opener.closed) {
               window.opener.postMessage({ type: 'OAUTH_SUCCESS' }, '${clientOrigin}');
               window.close();
