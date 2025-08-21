@@ -1,20 +1,39 @@
 <div align="center">
 
-# 🐦 Quirk — X/Twitter‑like Social App (Monorepo)
+  <img src="https://api.iconify.design/lucide:message-square-quote.svg?color=%238B5CF6" alt="Quirk icon" width="80" height="80" />
 
-[![Monorepo](https://img.shields.io/badge/monorepo-Turborepo-000?logo=vercel&logoColor=white)](https://turbo.build/repo)
-[![Node](https://img.shields.io/badge/node-%3E=18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=000)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-2-764ABC?logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
-[![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)](https://mongodb.com/)
+  <h1>Quirk — X/Twitter‑like Social App (Monorepo)</h1>
+  <p><em>Fast. Minimal. Beautiful.</em></p>
+
+  <p>
+    <img alt="Turborepo" src="https://img.shields.io/badge/Turborepo-000?style=for-the-badge&logo=turborepo&logoColor=white" />
+    <img alt="Node" src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+    <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img alt="React" src="https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  </p>
+  <p>
+    <img alt="Vite" src="https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+    <img alt="TailwindCSS" src="https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+    <img alt="Express" src="https://img.shields.io/badge/-Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+    <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  </p>
 
 </div>
 
 Quirk is a modern, full‑stack social app inspired by X/Twitter. It features a responsive React frontend and an Express + MongoDB backend, bundled in a Turborepo monorepo. Users can register, log in, post tweets, like, follow, and browse timelines — all with secure cookie‑based auth.
+
+---
+
+## 📚 Table of Contents
+
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+- [Usage](#-usage-api-quickstart)
+- [API Endpoints](#-main-api-endpoints)
+- [Contributing](#-contributing)
+- [Roadmap](#-roadmap--todo)
 
 ## ✨ Features
 
@@ -30,21 +49,46 @@ Quirk is a modern, full‑stack social app inspired by X/Twitter. It features a 
 ## 🧰 Tech Stack
 
 **Frontend**
-
+- <p>
+  <img alt="React" src="https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img alt="Vite" src="https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="TailwindCSS" src="https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+  <img alt="React Router" src="https://img.shields.io/badge/React%20Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white" />
+  <img alt="Axios" src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" />
+  <img alt="Context API" src="https://img.shields.io/badge/Context%20API-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  </p>
 - React 19, Vite 7, TypeScript
 - Tailwind CSS 4, Framer Motion, React Router 7
 - Context API, Axios
 
 **Backend**
-
+- <p>
+  <img alt="Node.js" src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img alt="Express" src="https://img.shields.io/badge/-Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img alt="Mongoose" src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" />
+  <img alt="Zod" src="https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logoColor=white" />
+  <img alt="JWT" src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
+  <img alt="cookie‑parser" src="https://img.shields.io/badge/cookie--parser-7E57C2?style=for-the-badge&logoColor=white" />
+  <img alt="CORS" src="https://img.shields.io/badge/CORS-5C6BC0?style=for-the-badge&logoColor=white" />
+  </p>
 - Node.js, Express 4
 - MongoDB + Mongoose 8
 - Zod for validation, JSON Web Tokens, cookie‑parser, CORS
 
 **Monorepo & Tooling**
-
+- <p>
+  <img alt="Turborepo" src="https://img.shields.io/badge/Turborepo-000?style=for-the-badge&logo=turborepo&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="ESLint" src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" />
+  <img alt="Prettier" src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=000" />
+  </p>
 - Turborepo, TypeScript project references
 - ESLint, Prettier
+
+---
 
 ## 📁 Project Structure
 
@@ -121,6 +165,8 @@ npm --workspace apps/server run start
 npm --workspace apps/client run preview
 ```
 
+---
+
 ## 📡 Usage (API quickstart)
 
 The server uses cookie‑based auth. Use `-c`/`-b` with curl to persist cookies.
@@ -147,6 +193,8 @@ curl -X POST http://localhost:3000/api/v1/tweets \
 curl http://localhost:3000/api/v1/tweets/timeline -b cookies.txt
 ```
 
+---
+
 ## 🔗 Main API Endpoints
 
 | Method | Path                          | Auth | Description            |
@@ -165,6 +213,14 @@ curl http://localhost:3000/api/v1/tweets/timeline -b cookies.txt
 | DELETE | `/api/v1/users/:id/follow`    |  ✓   | Unfollow user          |
 |    GET | `/api/v1/users/:username`     |  ✓   | Get user by username   |
 
+---
+
+## 📸 Screenshots
+
+TODO: Add screenshots of the app in action.
+
+---
+
 ## 🤝 Contributing
 
 Contributions welcome! Please:
@@ -172,6 +228,8 @@ Contributions welcome! Please:
 - Open an issue for bugs/feature requests.
 - Use conventional commits if possible.
 - Run `npm run lint` before pushing.
+
+---
 
 ## 🗺️ Roadmap / TODO
 
