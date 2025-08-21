@@ -1,135 +1,186 @@
-# Turborepo starter
+<div align="center">
 
-This Turborepo starter is maintained by the Turborepo core team.
+# 🐦 Quirk — X/Twitter‑like Social App (Monorepo)
 
-## Using this example
+[![Monorepo](https://img.shields.io/badge/monorepo-Turborepo-000?logo=vercel&logoColor=white)](https://turbo.build/repo)
+[![Node](https://img.shields.io/badge/node-%3E=18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=000)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-2-764ABC?logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
+[![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)](https://mongodb.com/)
 
-Run the following command:
+</div>
 
-```sh
-npx create-turbo@latest
-```
+Quirk is a modern, full‑stack social app inspired by X/Twitter. It features a responsive React frontend and an Express + MongoDB backend, bundled in a Turborepo monorepo. Users can register, log in, post tweets, like, follow, and browse timelines — all with secure cookie‑based auth.
 
-## What's inside?
+## ✨ Features
 
-This Turborepo includes the following packages/apps:
+- **Authentication** — Email/password register, login, logout using JWT in httpOnly cookies.
+- **Profiles** — Fetch user by username and view profile details.
+- **Tweets** — Create tweets, list all tweets, view a user’s tweets.
+- **Likes** — Like/unlike tweets.
+- **Timelines** — Home timeline feed and per‑user tweets.
+- **Social graph** — Follow/unfollow users.
+- **Polished UI** — Tailwind CSS 4 + Framer Motion for smooth, responsive UX.
+- **State management** — Context API + React Router.
 
-### Apps and Packages
+## 🧰 Tech Stack
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+**Frontend**
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- React 19, Vite 7, TypeScript
+- Tailwind CSS 4, Framer Motion, React Router 7
+- Context API, Axios
 
-### Utilities
+**Backend**
 
-This Turborepo has some additional tools already setup for you:
+- Node.js, Express 4
+- MongoDB + Mongoose 8
+- Zod for validation, JSON Web Tokens, cookie‑parser, CORS
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+**Monorepo & Tooling**
 
-### Build
+- Turborepo, TypeScript project references
+- ESLint, Prettier
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📁 Project Structure
 
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+.
+├─ apps/
+│  ├─ client/            # React + Vite frontend
+│  │  └─ src/
+│  └─ server/            # Express + Mongoose backend
+│     └─ src/
+├─ packages/
+│  ├─ eslint-config/
+│  └─ typescript-config/
+├─ turbo.json            # Turborepo pipeline
+├─ package.json          # Workspaces + root scripts
+└─ README.md
 ```
 
-### Develop
+## 🚀 Installation & Setup
 
-To develop all apps and packages, run the following command:
+Prerequisites:
 
-```
-cd my-turborepo
+- Node.js >= 18 and npm
+- MongoDB connection string
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+1. Clone the repository
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
+```bash
+git clone https://github.com/<your-username>/x-clone.git
+cd x-clone
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+2. Install dependencies (workspaces)
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+```bash
+npm install
 ```
 
-### Remote Caching
+3. Configure environment variables
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+Create `apps/server/.env`:
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+```dotenv
+MONGO_URI=mongodb+srv://<user>:<pass>@<cluster>/<db>?retryWrites=true&w=majority
+JWT_SECRET=replace-with-a-long-random-secret
+CLIENT_URL=http://localhost:5173
+NODE_ENV=development
+PORT=3000
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Create `apps/client/.env` (optional; has a sane default):
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+```dotenv
+VITE_API_URL=http://localhost:3000/api/v1
 ```
 
-## Useful Links
+4. Run in development
 
-Learn more about the power of Turborepo:
+```bash
+npm run dev
+# Frontend: http://localhost:5173
+# Backend:  http://localhost:3000
+```
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+5. Build for production
+
+```bash
+npm run build
+
+# Serve backend
+npm --workspace apps/server run start
+
+# Preview frontend build
+npm --workspace apps/client run preview
+```
+
+## 📡 Usage (API quickstart)
+
+The server uses cookie‑based auth. Use `-c`/`-b` with curl to persist cookies.
+
+```bash
+# Register
+curl -X POST http://localhost:3000/api/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"displayName":"Ada","username":"ada","email":"ada@example.com","password":"passw0rd"}' -c cookies.txt
+
+# Login
+curl -X POST http://localhost:3000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"ada@example.com","password":"passw0rd"}' -c cookies.txt
+
+# Me
+curl http://localhost:3000/api/v1/auth/me -b cookies.txt
+
+# Create tweet
+curl -X POST http://localhost:3000/api/v1/tweets \
+  -H "Content-Type: application/json" -d '{"content":"Hello, Quirk!"}' -b cookies.txt
+
+# Home timeline
+curl http://localhost:3000/api/v1/tweets/timeline -b cookies.txt
+```
+
+## 🔗 Main API Endpoints
+
+| Method | Path                          | Auth | Description            |
+| -----: | ----------------------------- | :--: | ---------------------- |
+|   POST | `/api/v1/auth/register`       |  —   | Register               |
+|   POST | `/api/v1/auth/login`          |  —   | Login                  |
+|   POST | `/api/v1/auth/logout`         |  —   | Logout (clears cookie) |
+|    GET | `/api/v1/auth/me`             |  ✓   | Current user           |
+|   POST | `/api/v1/tweets`              |  ✓   | Create tweet           |
+|    GET | `/api/v1/tweets`              |  ✓   | All tweets             |
+|    GET | `/api/v1/tweets/timeline`     |  ✓   | Home timeline          |
+|    GET | `/api/v1/tweets/user/:userId` |  ✓   | Tweets by user         |
+|   POST | `/api/v1/tweets/:id/like`     |  ✓   | Like tweet             |
+| DELETE | `/api/v1/tweets/:id/like`     |  ✓   | Unlike tweet           |
+|   POST | `/api/v1/users/:id/follow`    |  ✓   | Follow user            |
+| DELETE | `/api/v1/users/:id/follow`    |  ✓   | Unfollow user          |
+|    GET | `/api/v1/users/:username`     |  ✓   | Get user by username   |
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+
+- Open an issue for bugs/feature requests.
+- Use conventional commits if possible.
+- Run `npm run lint` before pushing.
+
+## 🗺️ Roadmap / TODO
+
+- [ ] Tests (unit/integration) and CI
+- [ ] Production deployment guide and Dockerfile
+- [ ] Messages & Notifications backend endpoints (UI exists)
+- [ ] Optional: remove any remaining OAuth-related dependencies if present
+- [ ] Improved error handling and logging
+
+---
+
+Made with ❤️ using TypeScript, React, and Express.
