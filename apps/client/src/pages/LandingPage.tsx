@@ -82,7 +82,7 @@ export const LandingPage = () => {
                         <div>
                             <motion.div variants={item} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 text-purple-300 text-xs mb-4">
                                 <Sparkles size={14} />
-                                <span>Now with OAuth & Timelines</span>
+                                <span>Now with Timelines</span>
                             </motion.div>
                             <motion.h1
                                 variants={item}
