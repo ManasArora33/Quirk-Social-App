@@ -3,7 +3,6 @@ import { MessageSquareQuote, Mail, Lock, LoaderCircle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import api from '../lib/api';
 import { useAuth } from '../context/AuthContext';
-import { OAuthButtons } from '../components/OAuthButtons';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -51,13 +50,6 @@ const LoginPage = () => {
             </div>
             <h2 className="text-3xl font-bold text-center">Sign in to Quirk</h2>
 
-            <OAuthButtons />
-
-            <div className="flex items-center space-x-2">
-              <hr className="flex-grow border-gray-800" />
-              <span className="text-gray-500 text-sm">or</span>
-              <hr className="flex-grow border-gray-800" />
-            </div>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="relative">

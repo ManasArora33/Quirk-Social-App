@@ -3,7 +3,6 @@ import { MessageSquareQuote, User, Mail, Lock, LoaderCircle } from 'lucide-react
 import React, { useState, useEffect } from 'react';
 import api from '../lib/api';
 import { useAuth } from '../context/AuthContext';
-import { OAuthButtons } from '../components/OAuthButtons';
 
 
 const RegisterPage = () => {
@@ -59,13 +58,6 @@ const RegisterPage = () => {
             </div>
             <h2 className="text-3xl font-bold text-center">Join Quirk Today</h2>
 
-            <OAuthButtons />
-
-            <div className="flex items-center space-x-2">
-              <hr className="flex-grow border-gray-800" />
-              <span className="text-gray-500 text-sm">or</span>
-              <hr className="flex-grow border-gray-800" />
-            </div>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="relative">
